@@ -1,5 +1,5 @@
 import { menuItems } from "./data/db"
-import {MenuItem} from "./components/menuItem"
+import {MenuItem} from "./components/MenuItem"
 
 function App() {
 
