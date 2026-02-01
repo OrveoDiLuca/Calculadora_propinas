@@ -1,11 +1,13 @@
 import { menuItems } from "./data/db"
-import {MenuItem} from "./components/MenuItem"
+import { MenuItem } from "./components/MenuItem"
 import OrderContets from "./components/OrderContets"
+import OrderTotal from "./components/OrderTotal"
+import Propina from "./components/Propina"
 import useOrder from "./hooks/useOrder"
 
 function App() {
 
-  const {addOrderItem, order} = useOrder()
+  const { order, addOrderItem, removeOrderItem, tip, setTip } = useOrder()
 
   return (
     <>
@@ -19,7 +21,7 @@ function App() {
           <div className="mt-10">
             {menuItems.map((item) => (
 
-              <MenuItem 
+              <MenuItem
                 key={item.id}
                 item={item}
                 addOrderItem={addOrderItem}
@@ -29,9 +31,20 @@ function App() {
         </div>
 
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
-          <OrderContets 
+          <OrderContets
             order={order}
+            removeOrderItem={removeOrderItem}
           />
+
+          <Propina
+            setTip={setTip}
+          />
+
+          <OrderTotal
+            order={order}
+            tip={tip}
+          />
+
         </div>
       </main>
 
