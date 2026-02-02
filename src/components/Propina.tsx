@@ -19,18 +19,26 @@ const tipOptions = [
 ]
 
 interface PropinaProps {
-    setTip: Dispatch<SetStateAction<number>>
+    setTip: Dispatch<SetStateAction<number>>, 
+    tip: number
 }
 
-function Propina({setTip }: PropinaProps) {
+function Propina({setTip, tip }: PropinaProps) {
   return (
     <div className="flex gap-2">
         <h3 className="font-black text-2xl">Propina:</h3>
         <form>
-            {tipOptions.map(tip => (
-                <div key={tip.id}>
-                    <label htmlFor={tip.id}>{tip.label}</label>
-                    <input type="radio" id={tip.id} value={tip.value} name="tip" onChange={(e) => setTip(Number(e.target.value))} />
+            {tipOptions.map(tipOption => (
+                <div key={tipOption.id}>
+                    <label htmlFor={tipOption.id}>{tipOption.label}</label>
+                    <input 
+                        type="radio" 
+                        id={tipOption.id} 
+                        value={tipOption.value} 
+                        name="tip" 
+                        onChange={(e) => setTip(Number(e.target.value))} 
+                        checked={tip === tipOption.value} 
+                    />
                 </div> 
             ))}
         </form>

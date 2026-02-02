@@ -11,10 +11,7 @@ const OrderContets = ({ order, removeOrderItem }: OrderContetsProps) => {
             <h2 className="font-black text-4xl">Consumo</h2>
 
             <div className="space-y-3 mt-10">
-                {order.length === 0 ? (
-                    <p className="text-center">No hay items en el consumo</p>
-                ) : (
-                    order.map((item) => (
+                {order.map((item) => (
                         <div
                             key={item.id}
                             className="flex justify-between items-center border-t border-slate-300 last-of-type:border-b py-5"
@@ -33,7 +30,7 @@ const OrderContets = ({ order, removeOrderItem }: OrderContetsProps) => {
                                 X
                             </button>
                         </div>
-                    )))}
+                    ))}
 
             </div>
         </div>
